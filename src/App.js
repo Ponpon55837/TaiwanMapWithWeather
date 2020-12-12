@@ -1,17 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Map from './Components/Map'
 import LeftOption from './Components/LeftOption'
 import './App.css'
 
 const App = () => {
 
-  const [ area, setArea ] = useState(['', '', ''])
+  const initWeather = {
+    locationName: '',
+
+  }
+
+  const [area, setArea] = useState(['', '', ''])
+  const [cityValue, setCityValue] = useState(0)
+  const [weatherValue, setWeatherValue] = useState(initWeather)
+
+  useEffect(() => {
+    const weatherFunc = async () => {
+      await fetch(`https://opendata.cwb.gov.tw/api//v1/rest/datastore/F-C0032-001?Authorization=${process.env.REACT_APP_WEATHER_AUTH}`)
+      .then(response => response.json())
+      .then(weatherData => {
+        const data = weatherData.records.location[cityValue]
+        console.log(data.weatherElement)
+        setWeatherValue({
+          ...weatherValue,
+          locationName: data.locationName
+        })
+      })
+    }
+    weatherFunc()
+  }, [cityValue])
+
+  console.log(weatherValue)
 
   return (
     <div id='container'>
       <LeftOption area={area} setArea={setArea} />
       <div className='map'>
-        <Map area={area} setArea={setArea} />
+        <Map area={area} setArea={setArea} cityValue={cityValue} setCityValue={setCityValue} />
       </div>
     </div>
   )

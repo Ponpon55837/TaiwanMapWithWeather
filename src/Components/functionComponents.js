@@ -1,0 +1,50 @@
+export const areaSwitch = (area, cityValue, setCityValue) => {
+  switch(area) {
+    case '嘉義縣':
+      return setCityValue(0)
+    case '新北市':
+      return setCityValue(1)
+    case '嘉義市':
+      return setCityValue(2)
+    case '新竹縣':
+      return setCityValue(3)
+    case '新竹市':
+      return setCityValue(4)
+    case '臺北市':
+      return setCityValue(5)
+    case '臺南市':
+      return setCityValue(6)
+    case '宜蘭縣':
+      return setCityValue(7)
+    case '苗栗縣':
+      return setCityValue(8)
+    case '雲林縣':
+      return setCityValue(9)
+    case '花蓮縣':
+      return setCityValue(10)
+    case '臺中市':
+      return setCityValue(11)
+    case '臺東縣':
+      return setCityValue(12)
+    case '桃園市':
+      return setCityValue(13)
+    case '南投縣':
+      return setCityValue(14)
+    case '高雄市':
+      return setCityValue(15)
+    case '金門縣':
+      return setCityValue(16)
+    case '屏東縣':
+      return setCityValue(17)
+    case '基隆市':
+      return setCityValue(18)
+    case '澎湖縣':
+      return setCityValue(19)
+    case '彰化縣':
+      return setCityValue(20)
+    case '連江縣':
+      return setCityValue(21)
+    default:
+      return setCityValue(cityValue)
+  }
+}
