@@ -2,10 +2,13 @@ body {
   margin: 0;
   padding: 0;
 }
-#mapCard {
+#container {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+}
+#mapCard {
   width: 15rem;
+  border: none;
   z-index: 1;
 }
 

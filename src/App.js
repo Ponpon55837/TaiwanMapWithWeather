@@ -8,12 +8,12 @@ const App = () => {
   const [ area, setArea ] = useState(['', '', ''])
 
   return (
-    <>
-      <LeftOption />
+    <div id='container'>
+      <LeftOption area={area} setArea={setArea} />
       <div className='map'>
         <Map area={area} setArea={setArea} />
       </div>
-    </>
+    </div>
   )
 }
 
