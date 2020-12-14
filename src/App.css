@@ -1,21 +1,21 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #4FAAF2;
 }
 #mapCard {
   width: 15rem;
   border: none;
   z-index: 2;
   background-color: rgba(0, 0, 0, .1);
-  position: absolute;
+  /* position: absolute; */
+  transition: ease .1;
 }
 
 .map {
   display: flex;
   justify-content: center;
   z-index: 1;
-  background-color: #CAE9C3;
-  /* position: absolute; */
 }
 
 .map button {
