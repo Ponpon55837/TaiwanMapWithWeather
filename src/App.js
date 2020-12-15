@@ -7,7 +7,6 @@ const App = () => {
 
   const initWeather = {
     locationName: '',
-
   }
 
   const [area, setArea] = useState(['', '', ''])
