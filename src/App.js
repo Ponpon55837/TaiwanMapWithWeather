@@ -19,7 +19,14 @@ const App = () => {
       .then(response => response.json())
       .then(weatherData => {
         const data = weatherData.records.location[cityValue]
-        console.log(data.weatherElement)
+        const dataElements = data.weatherElement.reduce(
+        (neededElements, item) => {
+          if (['Wx', 'PoP', 'MinT', 'CI', 'MaxT'].includes(item.elementName)) {
+            neededElements[item.elementName] = item.elementValue;
+          }
+          return neededElements;
+        },{})
+        console.log('dataElements', dataElements)
         setWeatherValue({
           ...weatherValue,
           locationName: data.locationName
@@ -29,7 +36,7 @@ const App = () => {
     weatherFunc()
   }, [cityValue])
 
-  console.log(weatherValue)
+  console.log('weatherValue', weatherValue)
 
   return (
     <div id='container'>
