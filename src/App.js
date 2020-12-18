@@ -22,14 +22,19 @@ const App = () => {
         const dataElements = data.weatherElement.reduce(
         (neededElements, item) => {
           if (['Wx', 'PoP', 'MinT', 'CI', 'MaxT'].includes(item.elementName)) {
-            neededElements[item.elementName] = item.elementValue;
+            neededElements[item.elementName] = item.elementValue
           }
-          return neededElements;
+          return neededElements
         },{})
         console.log('dataElements', dataElements)
         setWeatherValue({
           ...weatherValue,
-          locationName: data.locationName
+          locationName: data.locationName,
+          Wx: dataElements.Wx,
+          PoP: dataElements.Pop,
+          MinT: dataElements.MinT,
+          CI: dataElements.CI,
+          MaxT: dataElements.MaxT,
         })
       })
     }
